@@ -1,0 +1,149 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe4ec, #fff8f9);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-inline-size: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1, h2 {
+  color: #d6336c;
+  text-align: center;
+  font-weight: 600;
+}
+
+section {
+  margin-block-end: 60px;
+  background: #fff0f5;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+p, li {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+li {
+  background-color: #ffe6f0;
+  margin: 10px 0;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 15px 30px;
+  background-color: #ff4d88;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6005c;
+}
+
+/* Heart animation background */
+.heart-container::before {
+  content: "💗 💕 💓 💞 💖";
+  font-size: 40px;
+  position: fixed;
+  inline-size: 100%;
+  block-size: 100%;
+  inset-block-start: 0; inset-inline-start: 0;
+  animation: hearts 20s linear infinite;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+@keyframes hearts {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200%); }
+}
+
+/* Photo collage layout */
+.photo-collage {
+  position: relative;
+  block-size: 550px;
+}
+
+.photo {
+  position: absolute;
+  inline-size: 120px;
+  block-size: 120px;
+  background-color: #ffd6e8;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #c2185b;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo:hover {
+  transform: scale(1.2) rotateZ(3deg);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.floating-heart {
+  position: fixed;
+  inset-block-end: -20px;
+  font-size: 24px;
+  z-index: 0;
+  animation: floatHeart linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.thankyou-message {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 1s ease;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.thankyou-message.show {
+  opacity: 1;
+  transform: scale(1);
+}
